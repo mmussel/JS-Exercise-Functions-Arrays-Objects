@@ -62,13 +62,10 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName() {
-  let name = "Luke"
-
-   name: "Luke"
+function getName(personObject) {
 
 
-  return 'Hello, my name is ' + name;
+  return `Hello, my name is ${personObject.name}`;
   /* code here */
   }
 
@@ -86,12 +83,18 @@ function getName() {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson() {
-
-
-
-  /* code here */
-}
+function makeSmartPerson(name) {
+  const smartPerson = {
+    name: name,
+    sum: function(num1, num2){
+      return num1 + num2
+    },
+    speak: function(){
+      return `Hello, my name is ${name}`
+    }
+  } 
+  return makeSmartPerson;
+}/* code here */
 
 
 
@@ -153,12 +156,12 @@ function get3rdCar(inventory) {
 */
 function getCarInfoByIndex(inventory, index) {
   const help = inventory[index];
-  return ('This car is a ' + {help.car_make} + {help.car_model};
-
+  return `This car is a ${help.car_make} ${help.car_model}`
+}
 
   /* code here */
   
-};
+//};
 
 /**
  * ### Challenge `getLastCarInfo`
@@ -171,7 +174,9 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
+function getLastCarInfo(x) {
+const y = x[x.length -1];
+return `This is a ${y.car_make} ${y.car_model}`
   /* code here */
 }
 
@@ -187,7 +192,11 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
+function getCarInfoById(inventory, id) {
+  for(let i = 0; i < inventory.length; i++){
+    let id = inventory[i]
+    return `This is a ${id.car_make} ${id.car_model}`
+  }
   /* code here */
 }
 
@@ -199,7 +208,8 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
+function sortCarInventory(inventory) {
+  return inventory.sort((a,b) => (a.car_model > b.car_model)? 1 : (a.car_model < b.car_model)? -1 : 0)
   /* code here */
 }
 
@@ -212,7 +222,13 @@ function sortCarInventory(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
+function getModelYears(inventory) {
+  let year = [];
+  for(let i = 0; i < inventory[i]; i++){
+    year.push(inventory[i].car_year)
+
+  }
+  return year;
   /* code here */
 }
 
@@ -228,7 +244,17 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
+  function getOlderCars(inventory, max) {
+   const carYearsMax = [];
+    for(let x = 0; x < inventory.length; x++) {
+     if (max >= inventory[x].car_year) {
+     carYearsMax.push(inventory[x].car_year);
+
+     }
+    }
+   if(inventory[i].car_year <= maxYear) {
+     getOlderCars.push(inventory[i])
+  }
   /* code here */
 }
 
@@ -243,8 +269,15 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
+function getGermanCars(inventory) {
   /* code here */
+  const germanCars = [];
+  for(let i=0; i<inventory.length; i++)
+  if(inventory[i].car_make == 'Audi' || 
+  inventory[i].car_make == 'Mercedez-Benz'){
+    return inventory;
+  }
+  return germanCars;
 }
 
 /**
