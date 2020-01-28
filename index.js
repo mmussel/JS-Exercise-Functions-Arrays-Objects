@@ -63,7 +63,7 @@ function makePersonObject(id, name, email) {
  * the returned value should look like `Hello, my name is Leia`.
 */
 function getName(personObject) {
-
+let name = 'Miranda';
 
   return `Hello, my name is ${personObject.name}`;
   /* code here */
@@ -78,22 +78,23 @@ function getName(personObject) {
  * The returned object has the following characteristics:
  *     It has a `name` property that contains the argument passed in.
  *     It has a `sum` method that takes two numbers as arguments
- *         and returns the result of adding them together.
+ *         and returns the result of adding them together.\
  *     It has a `speak` method that takes no arguments
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
 function makeSmartPerson(name) {
-  const smartPerson = {
+  const makeSmart = {
     name: name,
-    sum: function(num1, num2){
-      return num1 + num2
+
+    sum(num1, num2){
+      return num1 + num2;
     },
-    speak: function(){
-      return `Hello, my name is ${name}`
+    speak(){
+      return `Hello, my name is ${name}`;
     }
   } 
-  return makeSmartPerson;
+ return makeSmart;
 }/* code here */
 
 
@@ -225,7 +226,7 @@ function sortCarInventory(inventory) {
 function getModelYears(inventory) {
   let year = [];
   for(let i = 0; i < inventory[i]; i++){
-    year.push(inventory[i].car_year)
+    
 
   }
   return year;
@@ -273,8 +274,9 @@ function getGermanCars(inventory) {
   /* code here */
   const germanCars = [];
   for(let i=0; i<inventory.length; i++)
-  if(inventory[i].car_make == 'Audi' || 
-  inventory[i].car_make == 'Mercedez-Benz'){
+  if(inventory[i].car_make === 'Audi' || 
+  inventory[i].car_make === 'Mercedez-Benz' ||
+  inventory[i].car_make === 'BMW'){
     return inventory;
   }
   return germanCars;
@@ -289,7 +291,7 @@ function getGermanCars(inventory) {
  * const sum = function (a, b) {
  *   return a + b
  * }
- * 
+ 
  * const addFive = function(num) {
 *    return num + 5
  * }
@@ -298,9 +300,15 @@ function getGermanCars(inventory) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a, b) => {
+  return a + b;
+}; // code here!
+const addFive = (num) => {
+  return num + 5;
+}; // code here!
+const argTimesTwo = (num) => {
+  return num * 2;
+}; // code here!
 
 /**
  * ### Challenge `carMaker`
